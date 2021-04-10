@@ -1,1 +1,29 @@
-<p>vehicle works!</p>
+<div class="col-sm-12 table-responsive">
+  <table class="table table-bordered text-center">
+    <thead class="thead-light">
+      <tr class="card-title">
+        <th scope="col" class="text-center">Nom</th>
+        <th scope="col" class="text-center">Description</th>
+        <th scope="col" class="text-center">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicle of vehicles">
+        <td>{{ vehicle.name }}</td>
+        <td>{{ vehicle.description }}</td>
+        <td>
+          <div>
+            <a
+              href="/vehicle-detail/{{ vehicle.id }}"
+              title="Afficher detail du vehicule"
+              data-toggle="tooltip"
+              data-placement="left"
+              class="btn btn-outline-primary btn-sm"
+              >Afficher Detail
+            </a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
