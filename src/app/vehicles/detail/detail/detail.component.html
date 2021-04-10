@@ -1,1 +1,53 @@
-<p>detail works!</p>
+<div class="card mt-5">
+  <div class="card-header">Detail Vehicule {{ vehicle && vehicle.id }}</div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      {{ vehicle && vehicle.name }}
+      <footer class="blockquote-footer">
+        {{ vehicle && vehicle.description }}
+      </footer>
+    </blockquote>
+  </div>
+</div>
+
+<form
+  class="mb-5"
+  name="form"
+  (ngSubmit)="f.form.valid && onSubmit()"
+  #f="ngForm"
+  novalidate
+>
+  <div class="form-group">
+    <label for="content"></label>
+    <textarea
+      placeholder="Ajouter un commentaire ... "
+      class="form-control"
+      name="content"
+      [(ngModel)]="form.content"
+      #content="ngModel"
+      required
+      id="content"
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn-outline-primary">Envoyer</button>
+</form>
+
+<ng-template #connectedUser>
+  <div class="col-sm-12 row">
+    <div class="col-sm-12 text-center mb-2">
+      Veuillez vous connecter pour voir les commentaires
+    </div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-2 text-center">
+      <a href="/auth/login" class="btn btn-outline-success btn-block"> Login</a>
+    </div>
+    <div class="col-sm-2 text-center">
+      <a href="/register" class="btn btn-outline-primary btn-block">
+        S'inscrire</a
+      >
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</ng-template>
+
+<app-comment *ngIf="username; else connectedUser"> </app-comment>

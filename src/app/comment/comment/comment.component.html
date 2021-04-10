@@ -1,1 +1,30 @@
-<p>comment works!</p>
+<div *ngFor="let comment of comments">
+  <div class="d-flex justify-content-center row">
+    <div class="col-md-12">
+      <div class="d-flex flex-column">
+        <div class="bg-white p-2">
+          <div class="d-flex flex-row">
+            <img
+              class="rounded-circle"
+              src="https://www.flaticon.com/svg/vstatic/svg/126/126486.svg?token=exp=1618138357~hmac=621cd00992e5bdda12997867822ab0c7"
+              width="40"
+            />
+            <div class="d-flex flex-column justify-content-start ml-2">
+              <span class="d-block font-weight-bold name">{{
+                comment.localUser ? comment.localUser.username : "Anonymes"
+              }}</span
+              ><span class="date text-black-50">{{
+                comment.commentDate | date: "dd MMMM yyyy"
+              }}</span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <p class="comment-text">
+              {{ comment.content ? comment.content : "" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
