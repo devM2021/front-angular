@@ -9,10 +9,19 @@ import { SignupComponent } from './signup/signup/signup.component';
 import { CommentComponent } from './comment/comment/comment.component';
 import { VehicleComponent } from './vehicles/vehicle/vehicle.component';
 import { DetailComponent } from './vehicles/detail/detail/detail.component';
+import { httpInterceptorProviders } from './auth/auth-interceptor';
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, SignupComponent, CommentComponent, VehicleComponent, DetailComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    SignupComponent,
+    CommentComponent,
+    VehicleComponent,
+    DetailComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
