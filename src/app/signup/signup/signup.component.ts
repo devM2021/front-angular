@@ -10,7 +10,7 @@ import { RegisterService } from './register.service';
 export class SignupComponent implements OnInit {
   form: any = {};
   registerData!: User;
-  isSignedUp = false;
+
   isSignUpFailed = false;
   errorMessage = '';
 
@@ -28,8 +28,8 @@ export class SignupComponent implements OnInit {
     this.registerService.registerUser(this.registerData).subscribe(
       (data) => {
         console.log(data);
-        this.isSignedUp = true;
         this.isSignUpFailed = false;
+        window.location.href = '/vehicles';
       },
       (error) => {
         console.log(error);
