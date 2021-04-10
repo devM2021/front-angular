@@ -10,6 +10,8 @@ import { CommentComponent } from './comment/comment/comment.component';
 import { VehicleComponent } from './vehicles/vehicle/vehicle.component';
 import { DetailComponent } from './vehicles/detail/detail/detail.component';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,7 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     VehicleComponent,
     DetailComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
